@@ -16,5 +16,5 @@ Route::get(
 Route::get('/products/new', 'App\Http\Controllers\ProductController@new');
 
 // rota para a URL products/add, do método add() referente a classe ProductController 
-Route::get('products/add', 'App\Http\Controllers\ProductController@add');
+Route::post('products/add', 'App\Http\Controllers\ProductController@add');
 
