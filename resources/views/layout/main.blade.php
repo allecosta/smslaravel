@@ -16,8 +16,8 @@
                     <a class="navbar-brand" href="/products">SMS Laravel - Sistema de Gerenciamento de Estoque</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/products">Listagem</a></li>
-                    <li><a href="/products/new">Novo</a></li>
+                    <li><a href="{{ action('App\Http\Controllers\ProductController@list') }}">Listagem</a></li>
+                    <li><a href="{{ action('App\Http\Controllers\ProductController@new') }}">Novo</a></li>
                 </ul>
             </div>
         </nav>
