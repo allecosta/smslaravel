@@ -30,10 +30,11 @@
                 </tr>
             @endforeach
         </table>
+    @endif 
+
+    @if (old('name'))
+        <div class="alert alert-success">
+            O produto <strong>{{ old('name') }}</strong> foi adicionado com sucesso!
+        </div>
     @endif
-    {{-- <h4>
-        <span class="label label-danger pull-right">
-            Um ou menos itens no estoque.
-        </span>
-    </h4> --}}
 @stop

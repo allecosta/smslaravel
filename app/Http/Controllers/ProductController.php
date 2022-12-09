@@ -70,6 +70,6 @@ class ProductController extends Controller
             VALUES (?,?,?,?)", [$name, $price, $description, $quantity]
         );
 
-        return view('product/add')->with('name', $name);
+        return redirect('/products')->withInput();
     }
 }
