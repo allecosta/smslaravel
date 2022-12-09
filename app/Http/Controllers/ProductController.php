@@ -72,4 +72,16 @@ class ProductController extends Controller
 
         return redirect('/products')->withInput();
     }
+
+    /**
+     * método responsavel por gerar informações no formato JSON
+     *
+     * @return void
+     */
+    public function listJson() 
+    {
+        $products = DB::select("SELECT * FROM products");
+
+        return response()->json($products);
+    }
 }

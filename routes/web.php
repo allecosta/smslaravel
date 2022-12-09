@@ -18,3 +18,6 @@ Route::get('/products/new', 'App\Http\Controllers\ProductController@new');
 // rota para a URL products/add, do método add() referente a classe ProductController 
 Route::post('products/add', 'App\Http\Controllers\ProductController@add');
 
+// rota para URL products/json, do método listJson() referente a classe ProductController
+Route::get('/products/json', 'App\Http\Controllers\ProductController@listJson');
+
