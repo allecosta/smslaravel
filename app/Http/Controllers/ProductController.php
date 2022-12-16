@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 class ProductController extends Controller
 {
@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function list() 
     {   
-        $products = DB::select("SELECT * FROM products");
+        $products = Product::all();
 
         return view('product/list')->with('products', $products);
     }
@@ -30,13 +30,13 @@ class ProductController extends Controller
      */
     public function display($id) 
     {   
-        $result = DB::select("SELECT * FROM products WHERE id = ?", [$id]);
+        $product = Product::find($id);
 
-        if (empty($result)) {
+        if (empty($product)) {
             return "Esse produto não existe";
         }
 
-        return view('product/details')->with('product', $result[0]);
+        return view('product/details')->with('product', $product);
     }
 
 
@@ -59,18 +59,14 @@ class ProductController extends Controller
      */
     public function add(Request $request) 
     {
-        $name = $request->input('name');
-        $price = $request->input('price');
-        $description = $request->input('description');
-        $quantity = $request->input('quantity');
+        $params = $request->all();
+        $product = new Product($params);
+        $product->save();
 
-        DB::insert("
-            INSERT INTO 
-                products (name, price, description, quantity)
-            VALUES (?,?,?,?)", [$name, $price, $description, $quantity]
-        );
+        return redirect()
+            ->action('App\Http\Controllers\ProductController@list')
+            ->withInput($request->only('name'));
 
-        return redirect('/products')->withInput();
     }
 
     /**
@@ -80,7 +76,7 @@ class ProductController extends Controller
      */
     public function listJson() 
     {
-        $products = DB::select("SELECT * FROM products");
+        $products = Product::all();
 
         return response()->json($products);
     }
