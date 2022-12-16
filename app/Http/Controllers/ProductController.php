@@ -52,7 +52,7 @@ class ProductController extends Controller
 
     
     /**
-     * método responsavel por recuperar os dados do formulario de adicionar um novo produto na base de dados
+     * método responsavel por adicionar um novo produto 
      *
      * @param Request $request
      * @return void
@@ -77,5 +77,20 @@ class ProductController extends Controller
         $products = Product::all();
 
         return response()->json($products);
+    }
+
+    /**
+     * método responsavel pela exclusão de produtos 
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function remove($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect()
+            ->action('App\Http\Controllers\ProductController@list');
     }
 }

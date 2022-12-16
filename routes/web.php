@@ -21,3 +21,6 @@ Route::post('products/add', 'App\Http\Controllers\ProductController@add');
 // rota para URL products/json, do método listJson() referente a classe ProductController
 Route::get('/products/json', 'App\Http\Controllers\ProductController@listJson');
 
+// rota para URL products/remove, do método remove() referente a classe ProductController
+Route::get('/products/remove/{id}', 'App\Http\Controllers\ProductController@remove');
+

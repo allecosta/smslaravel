@@ -2,7 +2,7 @@
 
 @section("content")
     <h1>Listagem de Produtos</h1>
-     
+
     @if (empty($products))
         <div class="alert alert-danger">
             Não há nenhum produto cadastrado!
@@ -32,6 +32,9 @@
                     <td>
                         <a href="/products/display/{{$product->id}}">
                             Visualizar
+                        </a>
+                        <a href="{{action('App\Http\Controllers\ProductController@remove', $product->id)}}">
+                            Excluir
                         </a>
                     </td>
                 </tr>
