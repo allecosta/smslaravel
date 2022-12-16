@@ -1,12 +1,19 @@
 @extends("layout/main")
 
 @section("content")
+    <h1>Listagem de Produtos</h1>
+     
     @if (empty($products))
         <div class="alert alert-danger">
             Não há nenhum produto cadastrado!
         </div>    
     @else
-        <h1>Listagem de Produtos</h1>  
+               
+    @if (old('name'))
+        <div class="alert alert-success">
+            O produto <strong>{{ old('name') }}</strong> foi adicionado com sucesso!
+        </div>
+    @endif
         <table class="table table-striped table-hover">
             <tr style="text-align: center;">
                 <th>Produto</th>
@@ -31,10 +38,4 @@
             @endforeach
         </table>
     @endif 
-
-    @if (old('name'))
-        <div class="alert alert-success">
-            O produto <strong>{{ old('name') }}</strong> foi adicionado com sucesso!
-        </div>
-    @endif
 @stop
