@@ -59,10 +59,8 @@ class ProductController extends Controller
      */
     public function add(Request $request) 
     {
-        $params = $request->all();
-        $product = new Product($params);
-        $product->save();
-
+        Product::create($request->all());
+        
         return redirect()
             ->action('App\Http\Controllers\ProductController@list')
             ->withInput($request->only('name'));
