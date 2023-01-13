@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Http\Requests\ProductsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -57,16 +59,16 @@ class ProductController extends Controller
      * @param Request $request
      * @return void
      */
-    public function add(Request $request) 
+    public function add(ProductsRequest $request) 
     {
         Product::create($request->all());
-        
+
         return redirect()
             ->action('App\Http\Controllers\ProductController@list')
             ->withInput($request->only('name'));
 
     }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     /**
      * método responsavel por gerar informações no formato JSON
      *
