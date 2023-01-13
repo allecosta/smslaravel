@@ -155,10 +155,28 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'required' => 'Favor preencher o campo Nome',
+        ],
+
+        'price' => [
+            'required' => 'Favor preencher o campo Valor',
+        ],
+
+        'quantity' => [
+            'required' => 'Favor preencher o campo Quantidade',
+        ],
+        
+        'description' => [
+            'required' => 'Favor preencher o campo Descrição',
         ],
     ],
+
+    // 'custom' => [
+    //     'attribute-name' => [
+    //         'rule-name' => 'custom-message',
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
