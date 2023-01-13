@@ -2,6 +2,17 @@
 
 @section('content')
     <h1>Novo Produto</h1>
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <form action="/products/add" method="POST">
         @csrf
         <div class=""row mb-3">
