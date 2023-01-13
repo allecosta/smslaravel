@@ -12,25 +12,25 @@
             </ul>
         </div>
     @endif
-    
+
     <form action="/products/add" method="POST">
         @csrf
         <div class=""row mb-3">
             <label class="col-sm-2 col-form-label">
                 Nome
-                <input type="text" name="name" >
+                <input type="text" name="name" value="{{ old('name') }}">
             </label>
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">
                 Valor
-                <input type="text" name="price" >
+                <input type="text" name="price" value="{{ old('price') }}">
             </label>
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">
                 Quantidade
-                <input type="number" name="quantity" >
+                <input type="number" name="quantity" value="{{ old('quantity') }}">
             </label>
         </div>
         <div class="row mb-3">
