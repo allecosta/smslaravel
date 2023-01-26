@@ -12,7 +12,7 @@ class Product extends Model
     // caso a propriedade não seja especificada, o laravel irá considerá o nome da classe como sendo o nome da tabela
     protected $table = "products";
 
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = ['name', 'price', 'description', 'quantity'];
 
     // impedindo que o usuário altere o ID do Model
