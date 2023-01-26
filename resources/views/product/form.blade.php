@@ -36,7 +36,7 @@
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">
                 Descrição
-                <textarea name="description" cols="30" rows="5"></textarea>
+                <textarea name="description" cols="30" rows="3">{{ old('description')}}</textarea>
             </label>
         </div>
         
